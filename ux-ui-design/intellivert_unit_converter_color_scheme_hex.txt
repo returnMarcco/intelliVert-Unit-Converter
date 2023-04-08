@@ -1,0 +1,6 @@
+IntelliVert Unit Converter
+
+header-color-light-grey = #455A64
+header-text-color-white = #FFFFFF
+contrast-color-grey = #37474F
+convert-button-color-green = #8BC34A
