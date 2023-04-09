@@ -10,9 +10,6 @@ import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +25,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ArrayAdapter<CharSequence> sourceUnitAdapter = ArrayAdapter.createFromResource(
                 this, R.array.unitArray, android.R.layout.simple_spinner_item
         );
+
         sourceUnitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sourceUnitSpinner.setAdapter(sourceUnitAdapter);
         sourceUnitSpinner.setOnItemSelectedListener(this);
-
-
 
         ArrayAdapter<CharSequence> targetUnitAdapter = ArrayAdapter.createFromResource(
                 this, R.array.unitArray, android.R.layout.simple_spinner_item
@@ -42,12 +38,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         targetUnitSpinner.setAdapter(targetUnitAdapter);
         targetUnitSpinner.setOnItemSelectedListener(this);
 
-
-
-        // Set Event Listeners
+        // Set Event Listener
         convertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // Event Handler Callback
                 // Exception-Handling
                 // onClick convert logic here
                 String inputVal = editText.getText().toString();
@@ -59,14 +53,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 CharSequence sourceUnitLabel = sourceUnitAdapter.getItem(sourceUnitSelection);
                 CharSequence targetUnitLabel = targetUnitAdapter.getItem(targetUnitSelection);
 
-                double convertLength = convertLength(inputValDbl, sourceUnitSelection, targetUnitSelection);
-                System.out.println(convertLength);
+                try {
+                    double convertedLength = convertLength(inputValDbl, sourceUnitSelection, targetUnitSelection);
+                    if (convertedLength == -1) {
+                        System.out.println("Invalid Conversion");
+                        // Invalid Output Toast logic here
+                    } else {
+                        System.out.println(inputVal + " " + sourceUnitLabel + " = " + convertedLength + " " + targetUnitLabel);
+                        // Valid Output Toast logic here
+                    }
+
+                } catch(Exception e) {
+                    // Toast saying that a value must be provided before tapping the `Convert` button
+                    // A catch-all exception message
+                }
+
 
                 // then check sourceSpinner val
                 // then check targetSpinner val
                 // then call appropriate conversion logic
                 // Toast popup showing converted value
-
             }
         });
     }
@@ -100,10 +106,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             return (sourceUnitPos * 3);
         // Foot -> Mile
         }
-        return -100;
+        return -1;
     }
 
-    // Event-handlers required for implementing the Listener Interface
+    // Event-handler declarations required for implementing the Listener Interface
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
 
@@ -112,8 +118,4 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
-    void testCallback() {
-        System.out.println("Hello World");
-    }
-
 }
