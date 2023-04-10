@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IntelliVert-Unit-Converter</string>
+    <string name="app_name">intelliVert</string>
     <string name="intellivert">IntelliVert</string>
     <string name="resUnitToConvert">unitToConvert</string>
     <string name="unit_to_convert">Unit to Convert</string>

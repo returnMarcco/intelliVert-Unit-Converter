@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         System.out.println(targetUnitSelection);
 
                         if (sourceUnitSelection < 4 && targetUnitSelection >= 4 || sourceUnitSelection > 3 && targetUnitSelection < 4 ||
-                            sourceUnitSelection > 3 && targetUnitSelection >= 7) {
+                            sourceUnitSelection >= 7 && targetUnitSelection < 7) {
                                 String invalidConversionMessage = "Invalid Conversion";
                                 Toast invalidConversion = Toast.makeText(getApplicationContext(), invalidConversionMessage, durationLong);
                                 invalidConversion.show();
