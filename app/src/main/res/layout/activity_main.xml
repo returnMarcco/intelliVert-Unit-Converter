@@ -62,6 +62,7 @@
                 android:background="#455A64"
                 android:backgroundTint="#455A64"
                 android:ems="10"
+                android:hapticFeedbackEnabled="true"
                 android:hint="@string/input"
                 android:importantForAutofill="no"
                 android:inputType="numberSigned|text|textCapWords"
@@ -82,10 +83,12 @@
                 android:layout_width="120dp"
                 android:layout_height="49dp"
                 android:layout_marginStart="148dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="48dp"
                 android:drawableTint="#8BC34A"
                 android:foregroundTint="#8BC34A"
+                android:hapticFeedbackEnabled="true"
                 android:text="@string/convert"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:backgroundTint="@color/lime_green"
@@ -117,6 +120,62 @@
                 android:contentDescription="@string/target_unit"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageButton
+                android:id="@+id/idSwapUnitValues"
+                android:layout_width="68dp"
+                android:layout_height="47dp"
+                android:layout_marginStart="172dp"
+                android:layout_marginEnd="172dp"
+                android:layout_marginBottom="32dp"
+                android:background="#37474F"
+                android:hapticFeedbackEnabled="true"
+                app:layout_constraintBottom_toTopOf="@+id/idConvertButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/arrow_interchange_white_no_bg"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/idImageBodyPercolator"
+                android:layout_width="211dp"
+                android:layout_height="245dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="59dp"
+                android:layout_marginEnd="107dp"
+                android:layout_marginBottom="72dp"
+                android:background="#37474F"
+                android:foregroundTintMode="src_over"
+                app:layout_constraintBottom_toTopOf="@+id/idNumberSourceInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/returnmarcco_perc"
+                tools:ignore="ContentDescription" />
+
+            <View
+                android:id="@+id/idFooterBar"
+                android:layout_width="418dp"
+                android:layout_height="36dp"
+                android:background="#455A64"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/idFooterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="148dp"
+                android:layout_marginBottom="4dp"
+                android:text="© github.com/returnMarcco"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/idFooterBar"
+                app:layout_constraintEnd_toEndOf="@+id/idFooterBar" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
